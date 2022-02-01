@@ -1,3 +1,8 @@
+export interface MyGlobalContext {
+  siteName?: string;
+  metaTitle?: string;
+  metaDescription?: string;
+}
 export interface SectionData {
   id: number;
   title: string;

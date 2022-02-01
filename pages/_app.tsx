@@ -1,11 +1,12 @@
 import App from "next/app";
 import type { AppProps } from "next/app";
 import { createContext } from "react";
+import Head from "next/head";
 import { fetchAPI } from "../lib/api";
 import "./_app.css";
-import Head from "next/head";
+import { MyGlobalContext } from "../types";
 
-export const GlobalContext = createContext({});
+export const GlobalContext = createContext<MyGlobalContext>({});
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { global } = pageProps;
