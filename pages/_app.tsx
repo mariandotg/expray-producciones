@@ -5,6 +5,7 @@ import Head from "next/head";
 import { fetchAPI } from "../lib/api";
 import "./_app.css";
 import { MyGlobalContext } from "../types";
+import { getStrapiMedia } from "../lib/media";
 
 export const GlobalContext = createContext<MyGlobalContext>({});
 
@@ -14,6 +15,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
+        <link rel="shortcut icon" href={getStrapiMedia(global.favicon)} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
