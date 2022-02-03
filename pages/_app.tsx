@@ -7,7 +7,7 @@ import "./_app.css";
 import { MyGlobalContext } from "../types";
 import { getStrapiMedia } from "../lib/media";
 
-export const GlobalContext = createContext<MyGlobalContext>({});
+export const GlobalContext = createContext<MyGlobalContext>({} as MyGlobalContext);
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { global } = pageProps;
@@ -34,6 +34,6 @@ MyApp.getInitialProps = async (context: any) => {
   const appProps = await App.getInitialProps(context);
   const global = await fetchAPI("/global");
   return { ...appProps, pageProps: { global } };
-}
+};
 
 export default MyApp;

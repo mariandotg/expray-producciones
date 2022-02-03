@@ -1,13 +1,15 @@
-import Head from "next/head";
 import Image from "next/image";
-import axios from "axios";
 import { SectionData } from "../types";
 import Section from "../components/section/section";
 import Seo from "../components/seo/seo";
+import Nav from "../components/nav/nav";
+import { fetchAPI } from "../lib/api";
 
-const Home = ({ sections }: { sections: SectionData[] }) => {
+const Home = ({ sections, categories }: { sections: SectionData[], categories: any }) => {
   return (
     <div>
+      <Nav categories={categories}/>
+      <div style={{ height: "96px" }}></div>
       <Seo />
       <main>
         {sections.map((e) => (
@@ -30,11 +32,16 @@ const Home = ({ sections }: { sections: SectionData[] }) => {
   );
 };
 export const getServerSideProps = async () => {
-  const res = await axios.get("http://localhost:1337/sections/");
-  const sections = res.data;
+  const [sections, categories] = await Promise.all([
+    fetchAPI("/sections"),
+    fetchAPI("/categories"),
+  ]);
+  /*const res = await axios.get("http://localhost:1337/sections/");
+  const sections = res.data;*/
   return {
     props: {
       sections,
+      categories
     },
   };
 };
