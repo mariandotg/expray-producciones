@@ -10,8 +10,9 @@ import {
   CategoriesListItem,
 } from "./styles";
 import HamburgerMenu from "./HamburgerMenu/HamburgerMenu";
+import { CategoriesData } from "../../types";
 
-const Nav = ({ categories }: { categories: any }) => {
+const Nav = ({ categories }: { categories: CategoriesData[] }) => {
   const [navbarOpen, setNavbarOpen] = useState<true | false>(false);
   const { logotypeHorizontal } = useContext(GlobalContext);
 

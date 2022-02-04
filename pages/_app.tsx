@@ -3,9 +3,9 @@ import type { AppProps } from "next/app";
 import { createContext } from "react";
 import Head from "next/head";
 import { fetchAPI } from "../lib/api";
-import "./_app.css";
 import { MyGlobalContext } from "../types";
 import { getStrapiMedia } from "../lib/media";
+import "./_app.css";
 
 export const GlobalContext = createContext<MyGlobalContext>({} as MyGlobalContext);
 
