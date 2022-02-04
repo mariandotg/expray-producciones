@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { SectionData } from "../types";
-import Section from "../components/section/section";
-import Seo from "../components/seo/seo";
-import Nav from "../components/nav/nav";
+import Section from "../components/Section/Section";
+import Seo from "../components/Seo/Seo";
+import Nav from "../components/Nav/Nav";
 import { fetchAPI } from "../lib/api";
 
 const Home = ({ sections, categories }: { sections: SectionData[], categories: any }) => {

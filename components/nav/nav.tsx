@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { GlobalContext } from "../../pages/_app";
-import Image from "../image/image";
+import Image from "../Image/Image";
 import Link from "next/link";
 import {
   Navbar,
@@ -9,7 +9,7 @@ import {
   CategoriesList,
   CategoriesListItem,
 } from "./styles";
-import HamburgerMenu from "./HamburguerMenu/HamburguerMenu";
+import HamburgerMenu from "./HamburgerMenu/HamburgerMenu";
 
 const Nav = ({ categories }: { categories: any }) => {
   const [navbarOpen, setNavbarOpen] = useState<true | false>(false);
