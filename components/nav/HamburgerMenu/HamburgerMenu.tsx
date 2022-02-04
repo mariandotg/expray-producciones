@@ -1,11 +1,11 @@
 import { MdMenu, MdClose } from "react-icons/md";
 import { HamburgerMenuProps } from "../../../types";
-import { HamburgerMenuDiv } from "./styles";
+import * as S from "./styles";
 
 const HamburgerMenu = ({ navbarOpen, setNavbarOpen }: HamburgerMenuProps) => {
     return (
       <>
-        <HamburgerMenuDiv>
+        <S.HamburgerMenuDiv>
           {!navbarOpen ? (
             <MdMenu
               color="black"
@@ -19,7 +19,7 @@ const HamburgerMenu = ({ navbarOpen, setNavbarOpen }: HamburgerMenuProps) => {
               onClick={() => setNavbarOpen(!navbarOpen)}
             />
           )}
-        </HamburgerMenuDiv>
+        </S.HamburgerMenuDiv>
       </>
     );
   };

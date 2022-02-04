@@ -1,16 +1,10 @@
 import { useContext, useState } from "react";
 import { GlobalContext } from "../../pages/_app";
+import { CategoriesData } from "../../types";
 import Image from "../Image/Image";
 import Link from "next/link";
-import {
-  Navbar,
-  NavbarDiv,
-  CategoriesDiv,
-  CategoriesList,
-  CategoriesListItem,
-} from "./styles";
 import HamburgerMenu from "./HamburgerMenu/HamburgerMenu";
-import { CategoriesData } from "../../types";
+import * as S from "./styles";
 
 const Nav = ({ categories }: { categories: CategoriesData[] }) => {
   const [navbarOpen, setNavbarOpen] = useState<true | false>(false);
@@ -18,28 +12,28 @@ const Nav = ({ categories }: { categories: CategoriesData[] }) => {
 
   return (
     <>
-      <Navbar>
-        <NavbarDiv>
+      <S.Nav>
+        <S.NavDiv>
           <HamburgerMenu
             navbarOpen={navbarOpen}
             setNavbarOpen={setNavbarOpen}
           />
           <Image source={logotypeHorizontal} style={{ height: "64px" }} />
-        </NavbarDiv>
+        </S.NavDiv>
         {navbarOpen && (
-          <CategoriesDiv>
-            <CategoriesList>
+          <S.CategoriesDiv>
+            <S.CategoriesList>
               {categories.map((e: any) => {
                 return (
-                  <CategoriesListItem key={e.id}>
+                  <S.CategoriesListItem key={e.id}>
                     <Link href={e.link}>{e.displayName}</Link>
-                  </CategoriesListItem>
+                  </S.CategoriesListItem>
                 );
               })}
-            </CategoriesList>
-          </CategoriesDiv>
+            </S.CategoriesList>
+          </S.CategoriesDiv>
         )}
-      </Navbar>
+      </S.Nav>
     </>
   );
 };

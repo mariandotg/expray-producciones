@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Navbar = styled.nav`
+export const Nav = styled.nav`
   position: fixed;
   width: 100%;
   display: flex;
@@ -12,13 +12,13 @@ const Navbar = styled.nav`
   box-shadow: -4px 0px 16px rgba(0, 0, 0, 0.25);
 `;
 
-const NavbarDiv = styled.div`
+export const NavDiv = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 
-const CategoriesDiv = styled.div`
+export const CategoriesDiv = styled.div`
   z-index: 1;
   position: absolute;
   width: 100%;
@@ -31,12 +31,11 @@ const CategoriesDiv = styled.div`
   box-shadow: 0px 16px 16px rgba(0, 0, 0, 0.06);
 `;
 
-const CategoriesList = styled.ul`
+export const CategoriesList = styled.ul`
   text-align: center;
   list-style-type: none;
 `;
 
-const CategoriesListItem = styled.li`
+export const CategoriesListItem = styled.li`
   margin: 24px 0;
 `;
-export { Navbar, NavbarDiv, CategoriesDiv, CategoriesList, CategoriesListItem };

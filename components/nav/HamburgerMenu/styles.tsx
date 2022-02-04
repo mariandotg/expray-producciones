@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
-const HamburgerMenuDiv = styled.div`
+export const HamburgerMenu = styled.div`
 position: absolute;
 left: 32px;
 `;
-
-export { HamburgerMenuDiv };
