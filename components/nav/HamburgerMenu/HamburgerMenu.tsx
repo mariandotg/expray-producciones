@@ -5,7 +5,7 @@ import * as S from "./styles";
 const HamburgerMenu = ({ navbarOpen, setNavbarOpen }: HamburgerMenuProps) => {
     return (
       <>
-        <S.HamburgerMenuDiv>
+        <S.HamburgerMenu>
           {!navbarOpen ? (
             <MdMenu
               color="black"
@@ -19,7 +19,7 @@ const HamburgerMenu = ({ navbarOpen, setNavbarOpen }: HamburgerMenuProps) => {
               onClick={() => setNavbarOpen(!navbarOpen)}
             />
           )}
-        </S.HamburgerMenuDiv>
+        </S.HamburgerMenu>
       </>
     );
   };
