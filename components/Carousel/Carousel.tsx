@@ -22,7 +22,7 @@ const Carousel = ({ source }: { source: HomeImagesData[] }) => {
   };
 
   const prevSlide = () => {
-    setCurrentSlide(currentSlide === 1 ? length - 1 : currentSlide - 1);
+    setCurrentSlide(currentSlide === 1 ? length : currentSlide - 1);
   };
 
   return (
