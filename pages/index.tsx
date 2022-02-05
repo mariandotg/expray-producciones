@@ -1,18 +1,19 @@
 import Image from "next/image";
 import { fetchAPI } from "../lib/api";
-import { CategoriesData, SectionData } from "../types";
+import { CategoriesData, HomeImagesData, SectionData } from "../types";
 import Section from "../components/Section/Section";
 import Seo from "../components/Seo/Seo";
 import Nav from "../components/Nav/Nav";
+import Carousel from "../components/Carousel/Carousel";
 
-const Home = ({sections, categories}: {sections: SectionData[], categories: CategoriesData[]}) => {
-  console.log(categories);
+const Home = ({sections, categories, homeImages}: {sections: SectionData[], categories: CategoriesData[], homeImages: HomeImagesData[]}) => {
   return (
     <div>
       <Nav categories={categories} />
       <div style={{ height: "96px" }}></div>
       <Seo />
       <main>
+        <Carousel source={homeImages}/>
         {sections.map((e) => (
           <Section key={e.id} section={e} />
         ))}
@@ -33,15 +34,17 @@ const Home = ({sections, categories}: {sections: SectionData[], categories: Cate
   );
 };
 export const getServerSideProps = async () => {
-  const [sections, categories] = await Promise.all([
+  const [sections, categories, homeImages] = await Promise.all([
     fetchAPI("/sections"),
     fetchAPI("/categories"),
+    fetchAPI("/home-images"),
   ]);
 
   return {
     props: {
       sections,
       categories,
+      homeImages,
     },
   };
 };

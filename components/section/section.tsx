@@ -2,7 +2,6 @@ import { SectionData } from "../../types";
 import * as S from "./styles"
 
 const Section = ({ section }: { section: SectionData }) => {
-  console.log(section);
   return (
     <>
       <S.SectionDiv darkBackground={section.dark_background}>

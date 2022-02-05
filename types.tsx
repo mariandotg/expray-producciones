@@ -16,7 +16,13 @@ export interface ImageData {
   name: string;
   url: string;
 }
-
+export interface HomeImagesData {
+  id: number;
+  image: {
+    [key: number]: ImageData;
+  }
+  imageDescription: string;
+}
 export interface HamburgerMenuProps {
   navbarOpen: true | false;
   setNavbarOpen: (navbarOpen: true | false) => void;
