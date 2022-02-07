@@ -5,15 +5,22 @@ import Section from "../components/Section/Section";
 import Seo from "../components/Seo/Seo";
 import Nav from "../components/Nav/Nav";
 import Carousel from "../components/Carousel/Carousel";
+import Layout from "../components/Layout/Layout";
 
-const Home = ({sections, categories, homeImages}: {sections: SectionData[], categories: CategoriesData[], homeImages: HomeImagesData[]}) => {
+const Home = ({
+  sections,
+  categories,
+  homeImages,
+}: {
+  sections: SectionData[];
+  categories: CategoriesData[];
+  homeImages: HomeImagesData[];
+}) => {
   return (
-    <div>
-      <Nav categories={categories} />
-      <div style={{ height: "96px" }}></div>
+    <Layout categories={categories}>
       <Seo />
       <main>
-        <Carousel source={homeImages}/>
+        <Carousel source={homeImages} />
         {sections.map((e) => (
           <Section key={e.id} section={e} />
         ))}
@@ -30,7 +37,7 @@ const Home = ({sections, categories, homeImages}: {sections: SectionData[], cate
           </span>
         </a>
       </footer>
-    </div>
+    </Layout>
   );
 };
 export const getServerSideProps = async () => {

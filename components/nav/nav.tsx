@@ -3,7 +3,7 @@ import { GlobalContext } from "../../pages/_app";
 import { CategoriesData } from "../../types";
 import Img from "../Img/Img";
 import Link from "next/link";
-import HamburgerMenu from "./HamburgerMenu/HamburgerMenu";
+import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
 import * as S from "./styles";
 
 const Nav = ({ categories }: { categories: CategoriesData[] }) => {

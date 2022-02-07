@@ -1,5 +1,5 @@
 import { MdMenu, MdClose } from "react-icons/md";
-import { HamburgerMenuProps } from "../../../types";
+import { HamburgerMenuProps } from "../../types";
 import * as S from "./styles";
 
 const HamburgerMenu = ({ navbarOpen, setNavbarOpen }: HamburgerMenuProps) => {
