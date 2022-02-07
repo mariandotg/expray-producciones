@@ -6,6 +6,7 @@ import Seo from "../components/Seo/Seo";
 import Nav from "../components/Nav/Nav";
 import Carousel from "../components/Carousel/Carousel";
 import Layout from "../components/Layout/Layout";
+import ContactForm from "../components/ContactForm/ContactForm";
 
 const Home = ({
   sections,
@@ -24,6 +25,7 @@ const Home = ({
         {sections.map((e) => (
           <Section key={e.id} section={e} />
         ))}
+        <ContactForm />
       </main>
       <footer>
         <a

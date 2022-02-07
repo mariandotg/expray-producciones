@@ -11,9 +11,9 @@ export const SectionDiv = styled.div<SectionDivData>`
   color: ${(props) => (props.darkBackground ? "#ffffff" : "#000000")};
 `;
 export const Title = styled.h2`
-  font-size: 2rem;
-  font-weight: 900;
-  line-height: 2rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 2.5rem;
 `;
 export const Description = styled.p`
   font-size: 1rem;
