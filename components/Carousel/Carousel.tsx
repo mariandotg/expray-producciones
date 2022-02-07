@@ -1,86 +1,72 @@
 import { useState } from "react";
 import { MdArrowBack, MdArrowForward } from "react-icons/md";
-import Image from "../Image/Image";
-import styled from "styled-components";
 import { HomeImagesData } from "../../types";
-
-const Carrousel = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  height: fit-content;
-`;
+import * as S from "./styles";
+import Img from "../Img/Img";
 
 const Carousel = ({ source }: { source: HomeImagesData[] }) => {
-  const [currentSlide, setCurrentSlide] = useState<number>(1);
+  const [selectedSlide, setSelectedSlide] = useState<number>(1);
+  const [loaded, setLoaded] = useState<boolean>(false);
   const length = source.length;
 
-  const nextSlider = () => {
-    setCurrentSlide(currentSlide === length ? 1 : currentSlide + 1);
+  const selectNewSlide = (next: boolean = true) => {
+    setLoaded(false);
+    //setTimeout(() => {
+    const condition = next ? selectedSlide === length : selectedSlide === 1;
+    const newSlide = next
+      ? condition
+        ? 1
+        : selectedSlide + 1
+      : condition
+      ? length
+      : selectedSlide - 1;
+    console.log(selectedSlide);
+    setSelectedSlide(newSlide);
+    //}, 500);
+  };
+
+  const nextSlide = () => {
+    selectNewSlide();
   };
 
   const prevSlide = () => {
-    setCurrentSlide(currentSlide === 1 ? length : currentSlide - 1);
+    selectNewSlide(false);
   };
 
   return (
     <>
-      <Carrousel>
-        {source.map(
-          (e: any) =>
-            e.id === currentSlide && (
-              <>
-                <div style={{ display: "flex", flexDirection: "column" }}>
-                  <div style={{ display: "flex", alignItems: "center" }}>
-                    <div
-                      style={{
-                        width: "32px",
-                        height: "32px",
-                      }}
-                    >
-                      <MdArrowBack
-                        color="black"
-                        size="32"
-                        onClick={prevSlide}
-                      />
-                    </div>
-                    <div
-                      style={{
-                        width: "100%",
-                        height: "100%",
-                        display: "flex",
-                        flexDirection: "column",
-                      }}
-                    >
-                      <Image
-                        key={e.id}
-                        source={e.image}
-                        style={{ width: "100%" }}
-                      />
-                    </div>
-                    <div
-                      style={{
-                        width: "32px",
-                        height: "32px",
-                      }}
-                    >
-                      <MdArrowForward
-                        color="black"
-                        size="32"
-                        onClick={nextSlider}
-                      />
-                    </div>
-                  </div>
-                  <p style={{ padding: "0 32px", minHeight: "128px" }}>{e.imageDescription}</p>
-                </div>
-              </>
+      <S.Carousel>
+        {source.map((e: HomeImagesData) => (
+            e.id === selectedSlide && (
+              <S.CarouselContentDiv
+                key={e.id}
+                className={loaded ? "loaded" : ""}
+              >
+                <S.CarouselImage>
+                  <Img
+                    source={e.image}
+                    height="540px"
+                    width="780px"
+                    onLoad={() => setLoaded(true)}
+                  />
+                </S.CarouselImage>
+                {loaded && <S.CarouselDescription>{e.imageDescription}</S.CarouselDescription>}
+              </S.CarouselContentDiv>
             )
-        )}
-      </Carrousel>
+        ))}
+        <S.CarouselControl>
+
+          <S.CarouselIcons>
+            <MdArrowBack color="black" size="32" onClick={prevSlide} />
+          </S.CarouselIcons>
+
+          <S.CarouselIcons>
+            <MdArrowForward color="black" size="32" onClick={nextSlide} />
+          </S.CarouselIcons>
+
+        </S.CarouselControl>
+      </S.Carousel>
     </>
   );
 };
-
 export default Carousel;

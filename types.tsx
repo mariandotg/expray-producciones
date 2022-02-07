@@ -18,9 +18,7 @@ export interface ImageData {
 }
 export interface HomeImagesData {
   id: number;
-  image: {
-    [key: number]: ImageData;
-  }
+  image: ImageData;
   imageDescription: string;
 }
 export interface HamburgerMenuProps {

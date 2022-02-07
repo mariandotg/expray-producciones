@@ -1,13 +1,13 @@
 import { useContext, useState } from "react";
 import { GlobalContext } from "../../pages/_app";
 import { CategoriesData } from "../../types";
-import Image from "../Image/Image";
+import Img from "../Img/Img";
 import Link from "next/link";
 import HamburgerMenu from "./HamburgerMenu/HamburgerMenu";
 import * as S from "./styles";
 
 const Nav = ({ categories }: { categories: CategoriesData[] }) => {
-  const [navbarOpen, setNavbarOpen] = useState<true | false>(false);
+  const [navbarOpen, setNavbarOpen] = useState<boolean>(false);
   const { logotypeHorizontal } = useContext(GlobalContext);
 
   return (
@@ -18,7 +18,7 @@ const Nav = ({ categories }: { categories: CategoriesData[] }) => {
             navbarOpen={navbarOpen}
             setNavbarOpen={setNavbarOpen}
           />
-          <Image source={logotypeHorizontal} style={{ height: "64px" }} />
+          <Img source={logotypeHorizontal} height="64px" width="238px" />
         </S.NavDiv>
         {navbarOpen && (
           <S.CategoriesDiv>
