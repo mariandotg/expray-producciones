@@ -21,7 +21,7 @@ const Home = ({
     <Layout categories={categories}>
       <Seo />
       <main>
-        <Carousel source={homeImages} />
+        {/*<Carousel source={homeImages} />*/}
         {sections.map((e) => (
           <Section key={e.id} section={e} />
         ))}
