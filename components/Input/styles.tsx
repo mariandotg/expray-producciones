@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const InputDiv = styled.div`
   display: flex;
+  width: 100%;
   flex-direction: column;
   margin: 8px 0;
 `;
