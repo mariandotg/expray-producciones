@@ -6,21 +6,31 @@ import Link from "next/link";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
 import * as S from "./styles";
 
-const Nav = ({ categories }: { categories: CategoriesData[] }) => {
+const Nav = ({
+  categories,
+}: {
+  categories: CategoriesData[];
+}) => {
   const [navbarOpen, setNavbarOpen] = useState<boolean>(false);
   const { logotypeHorizontal } = useContext(GlobalContext);
+
+  const scrollTo = (ref: any) => {
+    if (ref) {
+      ref.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
   return (
     <>
       <S.Nav>
         <S.NavDiv>
-          <HamburgerMenu
+          {/*<HamburgerMenu
             navbarOpen={navbarOpen}
             setNavbarOpen={setNavbarOpen}
-          />
-          <Image source={logotypeHorizontal} styles={{height: "64px"}} />
+          />*/}
+          <Image source={logotypeHorizontal} styles={{ height: "64px" }} />
         </S.NavDiv>
-        {navbarOpen && (
+        {/*navbarOpen && (
           <S.CategoriesDiv>
             <S.CategoriesList>
               {categories.map((e: any) => {
@@ -32,7 +42,7 @@ const Nav = ({ categories }: { categories: CategoriesData[] }) => {
               })}
             </S.CategoriesList>
           </S.CategoriesDiv>
-        )}
+        )*/}
       </S.Nav>
     </>
   );

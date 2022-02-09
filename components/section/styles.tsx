@@ -1,13 +1,18 @@
 import styled from "styled-components";
 
 export const SectionDiv = styled.div`
-display: flex;
-flex-direction: column;
-justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 32px;
   color: #000000;
   width: 100vw;
   //height: max(100vh, 100%);
+`;
+export const SectionContentDiv = styled.div`
+  padding: 32px;
+
+  width: min(100vw, 800px);
 `;
 export const Title = styled.h2`
   font-size: 2.5rem;

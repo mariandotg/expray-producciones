@@ -4,6 +4,7 @@ import { CategoriesData, HomeImagesData, SectionData } from "../types";
 import Layout from "../components/Layout/Layout";
 import Seo from "../components/Seo/Seo";
 import Main from "../components/Main/Main";
+import { useRef } from "react";
 
 const Home = ({
   sections,
@@ -14,23 +15,16 @@ const Home = ({
   categories: CategoriesData[];
   homeImages: HomeImagesData[];
 }) => {
+  const HomeRef = useRef(null);
+  const MLLRef = useRef(null);
+  const ContactRef = useRef(null);
+  const references = {
+    HomeRef, MLLRef, ContactRef,
+  }
   return (
     <Layout categories={categories}>
       <Seo />
       <Main carouselSource={homeImages} sectionsSource={sections} />
-
-      <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{" "}
-          <span>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
     </Layout>
   );
 };

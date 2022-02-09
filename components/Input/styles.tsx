@@ -18,4 +18,5 @@ export const TextArea = styled.textarea`
   border: 1px black solid;
   border-radius: 8px;
   resize: none;
+  height: 128px;
 `;
