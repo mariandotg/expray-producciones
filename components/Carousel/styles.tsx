@@ -5,13 +5,14 @@ export const Carousel = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: min(100vw, 800px);
+  height: min(100%, 800px);
 `;
 export const CarouselContentDiv = styled.div`
   display: flex;
   height: 100%;
+  width: min(100%, 800px);
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   opacity: 0;
   transition: 1s;
@@ -21,6 +22,8 @@ export const CarouselContentDiv = styled.div`
 `;
 export const CarouselImage = styled.div`
   display: flex;
+  width: 100%;
+  height: 100%;
 `;
 export const CarouselDescription = styled.p`
   width: min(780px, 100%);

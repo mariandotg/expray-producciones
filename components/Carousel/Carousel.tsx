@@ -2,23 +2,23 @@ import { useState } from "react";
 import { MdArrowBack, MdArrowForward } from "react-icons/md";
 import { HomeImagesData } from "../../types";
 import * as S from "./styles";
-import Img from "../Img/Img";
+import Image from "../Image/Image";
 
 const Carousel = ({ source }: { source: HomeImagesData[] }) => {
-  const [selectedSlide, setSelectedSlide] = useState<number>(1);
+  const [selectedSlide, setSelectedSlide] = useState<number>(0);
   const [loaded, setLoaded] = useState<boolean>(false);
   const length = source.length;
 
   const selectNewSlide = (next: boolean = true) => {
     setLoaded(false);
     //setTimeout(() => {
-    const condition = next ? selectedSlide === length : selectedSlide === 1;
+    const condition = next ? selectedSlide === length - 1: selectedSlide === 0;
     const newSlide = next
       ? condition
-        ? 1
+        ? 0
         : selectedSlide + 1
       : condition
-      ? length
+      ? length - 1
       : selectedSlide - 1;
     console.log(selectedSlide);
     setSelectedSlide(newSlide);
@@ -36,17 +36,17 @@ const Carousel = ({ source }: { source: HomeImagesData[] }) => {
   return (
     <>
       <S.Carousel>
-        {source.map((e: HomeImagesData) => (
-            e.id === selectedSlide && (
+        {source.map((e: HomeImagesData, index: number) => (
+           index === selectedSlide && (
               <S.CarouselContentDiv
                 key={e.id}
                 className={loaded ? "loaded" : ""}
               >
                 <S.CarouselImage>
-                  <Img
+                  <Image
                     source={e.image}
-                    height="540px"
-                    width="780px"
+                    styles={{width: "100%"}}
+                    
                     onLoad={() => setLoaded(true)}
                   />
                 </S.CarouselImage>

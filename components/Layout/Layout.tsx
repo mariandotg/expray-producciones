@@ -2,12 +2,18 @@ import { CategoriesData } from "../../types";
 import Nav from "../Nav/Nav";
 import * as S from "./styles";
 
-const Layout = ({ categories, children }: { categories: CategoriesData[], children: any}) => {
+const Layout = ({
+  categories,
+  children,
+}: {
+  categories: CategoriesData[];
+  children: any;
+}) => {
   return (
     <>
       <Nav categories={categories} />
       <S.NavSpaceDiv />
-      {children}
+      <S.Layout>{children}</S.Layout>
     </>
   );
 };

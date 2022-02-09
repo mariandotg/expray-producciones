@@ -1,13 +1,14 @@
 import { SectionData } from "../../types";
 import * as S from "./styles";
 import Button from "../Button/Button";
-const Section = ({ section }: { section: SectionData }) => {
+
+const Section = ({ section, darkBackground }: { section: SectionData, darkBackground?: boolean }) => {
   return (
     <>
-      <S.SectionDiv darkBackground={section.dark_background}>
+      <S.SectionDiv style={{background: darkBackground ? "var(--dark-background)" : "", color: darkBackground ? "#FFFFFF" : "#000000"}}>
         <S.Title>{section.title}</S.Title>
         <S.Description>{section.description}</S.Description>
-        {section.more_info_button ? (
+        {/*section.more_info_button ? (
           <div
             style={{
               display: "flex",
@@ -17,7 +18,7 @@ const Section = ({ section }: { section: SectionData }) => {
           >
             <Button text="Más info"/>
           </div>
-        ) : null}
+          ) : null*/}
       </S.SectionDiv>
     </>
   );

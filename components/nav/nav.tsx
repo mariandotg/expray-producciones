@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { GlobalContext } from "../../pages/_app";
 import { CategoriesData } from "../../types";
-import Img from "../Img/Img";
+import Image from "../Image/Image";
 import Link from "next/link";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
 import * as S from "./styles";
@@ -18,7 +18,7 @@ const Nav = ({ categories }: { categories: CategoriesData[] }) => {
             navbarOpen={navbarOpen}
             setNavbarOpen={setNavbarOpen}
           />
-          <Img source={logotypeHorizontal} height="64px" width="238px" />
+          <Image source={logotypeHorizontal} styles={{height: "64px"}} />
         </S.NavDiv>
         {navbarOpen && (
           <S.CategoriesDiv>

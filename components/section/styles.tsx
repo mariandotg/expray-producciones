@@ -1,14 +1,13 @@
 import styled from "styled-components";
 
-interface SectionDivData {
-  darkBackground: true | false;
-}
-
-export const SectionDiv = styled.div<SectionDivData>`
+export const SectionDiv = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: center;
   padding: 32px;
-  background-color: ${(props) =>
-    props.darkBackground ? "var(--dark-background)" : ""};
-  color: ${(props) => (props.darkBackground ? "#ffffff" : "#000000")};
+  color: #000000;
+  width: 100vw;
+  //height: max(100vh, 100%);
 `;
 export const Title = styled.h2`
   font-size: 2.5rem;

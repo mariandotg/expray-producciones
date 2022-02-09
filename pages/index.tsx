@@ -1,12 +1,9 @@
 import Image from "next/image";
 import { fetchAPI } from "../lib/api";
 import { CategoriesData, HomeImagesData, SectionData } from "../types";
-import Section from "../components/Section/Section";
-import Seo from "../components/Seo/Seo";
-import Nav from "../components/Nav/Nav";
-import Carousel from "../components/Carousel/Carousel";
 import Layout from "../components/Layout/Layout";
-import ContactForm from "../components/ContactForm/ContactForm";
+import Seo from "../components/Seo/Seo";
+import Main from "../components/Main/Main";
 
 const Home = ({
   sections,
@@ -20,13 +17,8 @@ const Home = ({
   return (
     <Layout categories={categories}>
       <Seo />
-      <main>
-        {/*<Carousel source={homeImages} />*/}
-        {sections.map((e) => (
-          <Section key={e.id} section={e} />
-        ))}
-        <ContactForm />
-      </main>
+      <Main carouselSource={homeImages} sectionsSource={sections} />
+
       <footer>
         <a
           href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
@@ -42,7 +34,7 @@ const Home = ({
     </Layout>
   );
 };
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   const [sections, categories, homeImages] = await Promise.all([
     fetchAPI("/sections"),
     fetchAPI("/categories"),
@@ -55,6 +47,7 @@ export const getServerSideProps = async () => {
       categories,
       homeImages,
     },
+    revalidate: 1,
   };
 };
 export default Home;
