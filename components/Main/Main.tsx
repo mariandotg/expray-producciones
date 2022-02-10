@@ -16,11 +16,6 @@ const Main = ({
   const firstSections = sectionsSource.slice(0, 2);
   const secondSections = sectionsSource.slice(2, sectionsSource.length);
 
-  console.log("firstCarousel ", firstCarousel);
-  console.log("firstSections ", firstSections);
-  console.log("secondCarousel ", secondCarousel);
-  console.log("darkBackgroundSections ", secondSections);
-
   return (
     <S.Main>
       <Carousel source={firstCarousel} />

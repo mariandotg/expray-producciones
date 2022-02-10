@@ -15,12 +15,7 @@ const Home = ({
   categories: CategoriesData[];
   homeImages: HomeImagesData[];
 }) => {
-  const HomeRef = useRef(null);
-  const MLLRef = useRef(null);
-  const ContactRef = useRef(null);
-  const references = {
-    HomeRef, MLLRef, ContactRef,
-  }
+  console.log(homeImages);
   return (
     <Layout categories={categories}>
       <Seo />
@@ -30,7 +25,7 @@ const Home = ({
 };
 export const getStaticProps = async () => {
   const [sections, categories, homeImages] = await Promise.all([
-    fetchAPI("/sections"),
+    fetchAPI("/home-sections"),
     fetchAPI("/categories"),
     fetchAPI("/home-images"),
   ]);
