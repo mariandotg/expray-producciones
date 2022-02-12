@@ -23,11 +23,11 @@ const Main = ({
         <Section key={e.id} section={e} />
       ))}
       <Carousel source={secondCarousel} />
-      {secondSections.map((e) => (
+      {secondSections.map((e, index) => (
         <Section
           key={e.id}
           section={e}
-          darkBackground={(e.id === 3 || e.id === 4) && true}
+          darkBackground={(index === 0 || index === 1) && true}
         />
       ))}
       <ContactForm />

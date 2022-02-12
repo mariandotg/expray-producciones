@@ -39,21 +39,21 @@ const ContactForm = () => {
             label="Asunto"
             type="text"
             name="subject"
-            placeholder="Subject test"
+            placeholder="Asunto"
           />
           <Input
             label="Nombre"
             type="text"
             name="name"
-            placeholder="John Doe"
+            placeholder="Escribe aquí tu nombre"
           />
           <Input
             label="Email"
             type="email"
             name="email"
-            placeholder="JohnDoe@gmail.com"
+            placeholder="Escribe aquí tu email para poder contactarte"
           />
-          <Input label="Mensaje" type="textarea" name="message" />
+          <Input label="Mensaje" type="textarea" name="message" placeholder="Escribe aquí tu mensaje" />
           <Button text="Send" />
         </Form>
       </S.ContactForm>

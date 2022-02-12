@@ -42,14 +42,11 @@ const Carousel = ({ source }: { source: HomeImagesData[] }) => {
                 key={e.id}
                 className={loaded ? "loaded" : ""}
               >
-                <S.CarouselImage>
                   <Image
                     source={e.image}
-                    styles={{width: "100%"}}
-                    
+                    styles={{width: "100%"}}        
                     onLoad={() => setLoaded(true)}
                   />
-                </S.CarouselImage>
                 {loaded && <S.CarouselDescription>{e.imageDescription}</S.CarouselDescription>}
               </S.CarouselContentDiv>
             )

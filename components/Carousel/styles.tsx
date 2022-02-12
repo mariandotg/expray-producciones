@@ -22,8 +22,8 @@ export const CarouselContentDiv = styled.div`
 `;
 export const CarouselImage = styled.div`
   display: flex;
-  width: 100%;
   height: 100%;
+  width: min(100%, 800px);
 `;
 export const CarouselDescription = styled.p`
   width: min(780px, 100%);
