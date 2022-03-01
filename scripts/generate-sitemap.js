@@ -4,7 +4,7 @@ const path = require("path");
 sitemap({
   baseUrl: "exprayproducciones.com",
   pagesDirectory: path.resolve(__dirname, "../pages/"),
-  targetDirectory: path.resolve(__dirname, "../pages/"),
+  targetDirectory: path.resolve(__dirname, "../public/"),
   ignoredExtensions: [
     "js",
     "ts",
